@@ -1,0 +1,55 @@
+body {
+	height: 100vh;
+	background: #002E33;
+}
+
+button{
+	margin: 20px;
+	padding: 20px 40px;
+	border: none;
+	cursor: pointer;
+  width: max-content;
+}
+
+/* PIERWSZY SPOSOB WYKORZYSTANIE CIENIA */
+.first{
+	background: #65CCB8;
+	box-shadow: inset 0px 0px 0px 0px #02A988;
+	transition: all 0.5s ease-in-out;
+}
+.first:hover{
+	box-shadow: inset 0px -200px 0px 0px #02A988;
+}
+
+/* DRUGI SPOSOB DLUZSZY ALE BARDZIEJ UNIWERSALNY*/
+.sec{
+	background: none;
+	position: relative;
+	overflow: hidden;
+}
+
+.sec:before, .sec:after{
+	content: "";
+	background: #65CCB8;
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -2;
+}
+.sec:after{
+	background: #02A988;
+	top: 100%;
+	transition: all 0.5s ease-in-out;
+}
+.sec:hover:after{
+	top: 0;
+}
+
+@media (max-width: 768px) {
+  .page.page-cover {
+    flex-direction: column;
+  }
+}
